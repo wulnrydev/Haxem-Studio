@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('haxem-theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <title>HaxEm Studio — Custom Minecraft Plugins & Server Solutions</title>
+  <meta name="description"
+    content="HaxEm Studio crafts premium Minecraft plugins, custom server systems, and resource packs built for the next generation of serious servers.">
+  <meta name="keywords"
+    content="Minecraft plugins, Spigot plugins, Paper plugins, custom server systems, Minecraft resource packs, HaxEm Studio, server setup, BungeeCord">
+  <meta name="author" content="HaxEm Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://haxemstudio.vercel.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://haxemstudio.vercel.app/">
+  <meta property="og:title" content="HaxEm Studio — Custom Minecraft Plugins & Server Solutions">
+  <meta property="og:description"
+    content="Premium Minecraft plugins, custom server systems & resource packs — built for serious servers.">
+  <meta property="og:image" content="https://haxemstudio.vercel.app/assets/og-image.png">
+  <meta property="og:site_name" content="HaxEm Studio">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HaxEm Studio — Custom Minecraft Plugins">
+  <meta name="twitter:description"
+    content="Premium Minecraft plugins, custom server systems & resource packs — built for serious servers.">
+  <meta name="twitter:image" content="https://haxemstudio.vercel.app/assets/og-image.png">
+
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Crect width='50' height='50' rx='12' fill='%232563EB'/%3E%3Cpath d='M10 8L10 42M10 25L40 25M40 8L40 42' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Crect width='50' height='50' rx='12' fill='%232563EB'/%3E%3Cpath d='M10 8L10 42M10 25L40 25M40 8L40 42' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <meta name="theme-color" content="#F4F7FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#050A14" media="(prefers-color-scheme: dark)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <div class="toast-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    </div>
+    <span class="toast-msg"></span>
+  </div>
+
+  <div class="blob-c" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="HaxEm Studio home">
+      <div class="nav-logo-icon" aria-hidden="true" style="background: transparent; box-shadow: none;">
+        <img src="assets/logo.png" alt="HaxEm Studio Logo" width="384" height="384" style="width: 100%; height: 100%; border-radius: 9px; object-fit: contain;">
+      </div>
+      HaxEm Studio
+    </a>
+    <div class="nav-div" aria-hidden="true"></div>
+    <a href="#resources" class="nav-link">Resources</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="https://haxemstudio.gitbook.io/wiki" class="nav-link" target="_blank" rel="noopener noreferrer">Wiki</a>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke-linejoin="round" />
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </svg>
+    </button>
+
+    <a href="https://builtbybit.com/creators/haxem-studio.587287/" target="_blank" rel="noopener noreferrer"
+      class="nav-cta" aria-label="Visit our store on BuiltByBit">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <path d="M16 10a4 4 0 0 1-8 0" />
+      </svg>
+      Store
+    </a>
+
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="#resources" class="mob-link">Resources</a>
+    <a href="#contact" class="mob-link">Contact</a>
+    <div class="mob-div" aria-hidden="true"></div>
+    <a href="https://haxemstudio.gitbook.io/wiki" class="mob-link" target="_blank" rel="noopener noreferrer">Wiki</a>
+    <a href="https://builtbybit.com/creators/haxem-studio.587287/" class="mob-link" target="_blank"
+      rel="noopener noreferrer">Store</a>
+    <div class="mob-div" aria-hidden="true"></div>
+    <a href="legal.html" class="mob-link">Terms of Service</a>
+    <a href="legal.html#privacy" class="mob-link">Privacy Policy</a>
+  </div>
+
+
+  <section class="hero" aria-labelledby="hero-heading">
+
+    <div class="hero-badge">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Minecraft Server Solutions
+    </div>
+
+    <div class="hero-logo" aria-hidden="true">
+      <div class="logo-mark" style="background: transparent; box-shadow: none;">
+        <img src="assets/logo.png" alt="HaxEm Studio Logo" width="384" height="384" style="width: 120px; height: 120px; border-radius: 26px; object-fit: contain; filter: drop-shadow(0 0 40px rgba(52, 109, 219, 0.4));">
+      </div>
+    </div>
+
+    <h1 id="hero-heading">HaxEm<br><span>Studio</span></h1>
+
+    <p class="hero-sub">
+      Custom plugins, server systems &amp; premium resources —
+      built for the next generation of Minecraft servers.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#resources" class="btn-p">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        </svg>
+        Browse Resources
+      </a>
+      <a href="https://haxemstudio.gitbook.io/wiki" class="btn-s" target="_blank" rel="noopener noreferrer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+        Documentation
+      </a>
+    </div>
+
+    <div class="scroll-ind" aria-label="Scroll down">
+      <div class="sc-line" aria-hidden="true"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <section class="srv-sec" aria-labelledby="services-heading">
+    <div class="container">
+
+      <div class="reveal">
+        <div class="sec-label" aria-hidden="true">What We Do</div>
+        <h2 id="services-heading" class="sec-title">Crafted for<br>serious servers.</h2>
+        <p class="sec-desc">From ground-up custom systems to polished resource packs we build everything your Minecraft
+          server needs to stand out.</p>
+      </div>
+
+      <div class="srv-grid">
+
+        <div class="srv-card reveal rd1">
+          <div class="srv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+          </div>
+          <h3>Custom Plugins &amp; Configurations</h3>
+          <p>Bespoke Spigot &amp; Paper plugins tailored exactly to your server's gameplay, mechanics, and identity.</p>
+        </div>
+
+        <div class="srv-card reveal rd2">
+          <div class="srv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="8" rx="2" />
+              <rect x="2" y="14" width="20" height="8" rx="2" />
+              <line x1="6" y1="6" x2="6.01" y2="6" />
+              <line x1="6" y1="18" x2="6.01" y2="18" />
+            </svg>
+          </div>
+          <h3>Custom Server Systems</h3>
+          <p>Full-stack server architectures from BungeeCord networks to complex multi-server pipelines and proxies.</p>
+        </div>
+
+        <div class="srv-card reveal rd3">
+          <div class="srv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+          </div>
+          <h3>Server Setups</h3>
+          <p>Ready-to-run server installations, optimised configurations, and performance tuning out of the box.</p>
+        </div>
+
+        <div class="srv-card reveal rd4">
+          <div class="srv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polygon points="12 2 2 7 12 12 22 7 12 2" />
+              <polyline points="2 17 12 22 22 17" />
+              <polyline points="2 12 12 17 22 12" />
+            </svg>
+          </div>
+          <h3>Textures &amp; Resource Packs</h3>
+          <p>Pixel-perfect custom textures and fully themed resource packs to elevate your player experience.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="g-div" aria-hidden="true"></div>
+
+
+  <section id="resources" aria-labelledby="resources-heading">
+    <div class="container">
+
+      <div class="reveal">
+        <div class="sec-label" aria-hidden="true">Resources</div>
+        <h2 id="resources-heading" class="sec-title">Premium plugins,<br>ready to deploy.</h2>
+        <p class="sec-desc">Battle-tested plugins built with performance and deep configurability at their core.</p>
+      </div>
+
+      <article class="res-card reveal" aria-label="NetherTickets plugin">
+
+        <div class="res-img" aria-hidden="true">
+          <img src="assets/nethertickets.png" alt="NetherTickets Preview" width="1920" height="1080" class="res-banner" loading="lazy">
+        </div>
+
+        <div class="res-body">
+          <div class="res-tag">
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="6" />
+            </svg>
+            Spigot / Paper
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3 style="margin-bottom: 0;">NetherTickets</h3>
+            <div class="custom-tooltip-wrapper" data-tooltip="Timed Nether access with tickets, entry rules, placeholders, and SQLite/MySQL support." style="cursor: default; opacity: 0.5; display: flex; transition: opacity 0.2s;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+          </div>
+          <p>Gates Nether access behind consumable ticket items. Players earn, redeem, and track timed access all
+            through configurable BossBar and ActionBar notifications.</p>
+          <p>Supports multiple tiered tickets, cooldowns, SQLite &amp; MySQL, and full PlaceholderAPI integration.</p>
+
+          <div class="res-meta">
+            <span class="res-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+              v1.0.0
+            </span>
+            <span class="res-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              1.17 – 1.21+
+            </span>
+            <span class="res-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="8" rx="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" />
+              </svg>
+              Paper &amp; Spigot
+            </span>
+          </div>
+
+          <div class="res-actions">
+            <a href="https://builtbybit.com/resources/nethertickets-time-based-nether-access.104698/" target="_blank" rel="noopener noreferrer"
+              class="btn-buy" id="nethertickets-buy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              Purchase
+            </a>
+            <a href="https://haxemstudio.gitbook.io/wiki/plugins/nethertickets" class="btn-wk" target="_blank"
+              rel="noopener noreferrer" id="nethertickets-wiki">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg>
+              Wiki
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="g-div" aria-hidden="true"></div>
+
+
+  <section id="contact" class="contact-sec" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="contact-card reveal">
+        <div class="contact-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+        </div>
+
+        <h2 id="contact-heading">Get in touch</h2>
+        <p>Have a custom project in mind, need support, or just want to chat? Join our Discord we're always around.</p>
+
+        <div class="contact-links">
+          <a href="#" class="btn-discord" data-soon="Discord" id="discord-link">
+            <img src="assets/discord.svg" width="22" height="22" alt="" aria-hidden="true">
+            Join Discord
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <a href="index.html" class="ft-logo" aria-label="HaxEm Studio home">
+      <div class="ft-mark" aria-hidden="true" style="background: transparent; box-shadow: none;">
+        <img src="assets/logo.png" alt="HaxEm Studio Logo" width="384" height="384" style="width: 100%; height: 100%; border-radius: 11px; object-fit: contain;">
+      </div>
+      <span>HaxEm Studio</span>
+    </a>
+
+    <nav class="ft-links" aria-label="Footer navigation">
+      <a href="#resources" class="ft-link">Resources</a>
+      <a href="#contact" class="ft-link">Contact</a>
+    </nav>
+
+    <div class="ft-bottom">
+      <p>© 2026 HaxEm Studio. All rights reserved.</p>
+      <div class="ft-legal">
+        <a href="legal.html" class="ft-legal-link">Terms of Service</a>
+        <span class="ft-sep">&middot;</span>
+        <a href="legal.html#privacy" class="ft-legal-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
