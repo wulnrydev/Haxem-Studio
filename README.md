@@ -16,6 +16,6 @@ We believe that a professional development studio should be represented by a cle
 
 ## Links
 - **Store**: [BuiltByBit](https://builtbybit.com/creators/haxem-studio.587287/)
-- **Documentation**: [GitBook Wiki](https://haxemstudio.gitbook.io/wiki)
+- **Documentation**: [Wiki](https://haxemstudio.gitbook.io/wiki)
 
 *Crafted for serious servers.*
